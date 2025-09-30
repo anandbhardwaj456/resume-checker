@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid md:grid-cols-2 gap-6 mt-4">
+  <a href="{{ url_for('resume_assistant') }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition">
+    <h2 class="text-lg font-semibold">AI Resume & Career Assistant</h2>
+    <p class="text-sm text-gray-600 mt-2">Parse resumes, suggest improvements, generate cover letters.</p>
+  </a>
+  <a href="{{ url_for('job_match') }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition">
+    <h2 class="text-lg font-semibold">Job Match</h2>
+    <p class="text-sm text-gray-600 mt-2">Recommend jobs based on your resume text.</p>
+  </a>
+  <a href="{{ url_for('email_manager') }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition">
+    <h2 class="text-lg font-semibold">Smart Email Manager</h2>
+    <p class="text-sm text-gray-600 mt-2">Categorize, prioritize, summarize, and draft replies.</p>
+  </a>
+  <a href="{{ url_for('meeting_assistant') }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition">
+    <h2 class="text-lg font-semibold">Meeting Assistant</h2>
+    <p class="text-sm text-gray-600 mt-2">Summarize transcripts and generate action items.</p>
+  </a>
+  <a href="{{ url_for('document_search') }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition md:col-span-2">
+    <h2 class="text-lg font-semibold">AI Document Search</h2>
+    <p class="text-sm text-gray-600 mt-2">Upload documents and run semantic search.</p>
+  </a>
+  <div class="md:col-span-2 text-xs text-gray-500">Tailwind UI enabled. For better looks, customize components later.</div>
+ </div>
+{% endblock %}
+
+

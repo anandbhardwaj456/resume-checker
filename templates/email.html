@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid md:grid-cols-2 gap-6 mt-4">
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h2 class="text-lg font-semibold">Analyze Email</h2>
+    <form class="mt-4 space-y-3" method="post">
+      <textarea name="email_text" rows="12" placeholder="Paste email here" class="w-full border rounded p-2 text-sm">{{ email_text }}</textarea>
+      <div class="flex items-center gap-2 text-sm">
+        <label for="tone">Reply tone</label>
+        <select id="tone" name="tone" class="border rounded p-1">
+          <option value="professional">Professional</option>
+          <option value="friendly">Friendly</option>
+          <option value="concise">Concise</option>
+        </select>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Process</button>
+    </form>
+  </div>
+  <div class="space-y-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Category & Priority</h3>
+      <div class="text-sm mt-2">Category: <span class="font-medium">{{ category or '—' }}</span></div>
+      <div class="text-sm">Priority: <span class="font-medium">{{ priority or '—' }}</span></div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Summary</h3>
+      <p class="text-sm mt-2">{{ summary or '—' }}</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Suggested Reply</h3>
+      <pre class="mt-2 text-sm whitespace-pre-wrap">{{ reply or '—' }}</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

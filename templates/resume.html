@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid md:grid-cols-2 gap-6 mt-4">
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h2 class="text-lg font-semibold">Upload Resume</h2>
+    <form class="mt-4 space-y-3" method="post" enctype="multipart/form-data">
+      <input name="resume" type="file" accept=".txt,.pdf,.docx" class="block w-full text-sm" />
+      <textarea name="job_description" rows="5" placeholder="Paste job description (optional)" class="w-full border rounded p-2 text-sm"></textarea>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Process</button>
+    </form>
+  </div>
+
+  <div class="space-y-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Parsed Text</h3>
+      <pre class="mt-2 text-sm whitespace-pre-wrap">{{ parsed_text or '—' }}</pre>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Suggestions</h3>
+      <ul class="list-disc ml-6 mt-2 text-sm">
+        {% for s in suggestions %}
+          <li>{{ s }}</li>
+        {% else %}
+          <li>No suggestions yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="font-semibold">Cover Letter</h3>
+      <pre class="mt-2 text-sm whitespace-pre-wrap">{{ cover_letter or '—' }}</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
